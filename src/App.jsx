@@ -1,14 +1,11 @@
-import './App.css'
-import Button from '@mui/material/Button';
+import React from 'react';
 import TopMenuBar from './components/top-menu-bar/TopMenuBar';
 
-function App() {
 
+const App = () => {
   return (
-    <>
-      <TopMenuBar />
-    </>
-  )
-}
+    <TopMenuBar />
+  );
+};
 
-export default App
+export default App;

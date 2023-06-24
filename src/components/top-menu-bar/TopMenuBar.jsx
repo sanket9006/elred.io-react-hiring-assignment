@@ -1,13 +1,16 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material';
+import { FaUser } from 'react-icons/fa';
 import { makeStyles } from '@mui/styles';
-
 
 const useStyles = makeStyles((theme) => ({
     logo: {
         marginRight: theme.spacing(2),
         flexGrow: 1,
+    },
+    userIcon: {
+        fontSize: '1.5rem', // Adjust the size of the user icon
+        marginRight: theme.spacing(0.5), // Add a small right margin
     },
 }));
 
@@ -40,7 +43,12 @@ const TopMenuBar = () => {
                         onClick={handleMenu}
                         color="inherit"
                     >
-                        <AccountCircle />
+                        <FaUser className={classes.userIcon} />
+                        {/* User email and name */}
+                        <Typography variant="body1">user@example.com</Typography>
+                        <Typography variant="body2" color="textSecondary">
+                            John Doe
+                        </Typography>
                     </IconButton>
                     <Menu
                         id="menu-appbar"
