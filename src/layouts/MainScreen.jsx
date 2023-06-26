@@ -3,6 +3,7 @@ import { makeStyles } from '@mui/styles';
 import { AppBar, Toolbar, Typography, Grid } from '@mui/material';
 import TopMenuBar from '../components/TopMenuBar';
 import VerticalMenuBar from '../components/VerticalMenuBar';
+import Cart from '../components/Cart';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,29 +13,27 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#ECEFF6'
     },
     appBar: {
-        zIndex: theme.zIndex.drawer + 1,
+        zIndex: 10,
     },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
+    section: {
+        borderRadius: '18px',
         backgroundColor: 'white',
-        borderRadius: '18px',
-
+        padding: '18px',
+        minHeight: 'calc(100vh - 64px)',
+        maxHeight: 'calc(100vh - 64px)',
+        overflow: 'auto',
     },
-    sidebar: {
-        width: 240,
-        minWidth: 240,
-        height: 'calc(100vh - 64px)',
-        borderRadius: '18px',
-        backgroundColor: '#ffffff',
-        overflow: 'hidden',
-        position: 'relative',
+    section1: {
+        marginLeft: '18px',
+        marginRight: '9px',
     },
-    mainContentContainer: {
-        padding: "20px",
-        flexGrow: 1,
-        display: 'flex',
-        gap: '20px', // Add the desired spacing between sidebar and main content
+    section2: {
+        marginLeft: '9px',
+        marginRight: '9px',
+    },
+    section3: {
+        marginLeft: '9px',
+        marginRight: '18px',
     },
 }));
 
@@ -49,24 +48,31 @@ const Layout = ({ children }) => {
             </AppBar>
 
             {/* Main Content container */}
-            <div className={classes.mainContentContainer}>
-                {/* Sidebar */}
-                <div className={classes.sidebar}>
-                    <VerticalMenuBar />
-                </div>
+            <Grid container sx={{ marginTop: '20px', marginBottom: '20px' }} spacing={1}>
+                {/* Section 1 */}
+                <Grid item xs={2.5}>
+                    <div className={`${classes.section} ${classes.section1}`}>
+                        <VerticalMenuBar />
+                    </div>
+                </Grid>
 
-                {/* Main Content */}
-                <main className={classes.content}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={12}>
-                            {children}
-                        </Grid>
-                    </Grid>
-                </main>
-            </div>
+                {/* Section 2 */}
+                <Grid item xs={6.5}>
+                    <div className={`${classes.section} ${classes.section2}`}>
+                        {children}
+                    </div>
+                </Grid>
+
+                {/* Section 3 */}
+                <Grid item xs={3}>
+                    <div className={`${classes.section} ${classes.section3}`}>
+                        <Cart />
+                    </div>
+                </Grid>
+            </Grid>
         </div>
     );
-
 };
+
 
 export default Layout;

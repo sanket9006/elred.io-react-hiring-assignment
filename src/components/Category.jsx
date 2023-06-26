@@ -58,10 +58,10 @@ const Categories = ({ setselectedCategory }) => {
   return (
     <>
       <Grid sx={{ marginBottom: 2 }} container spacing={2} alignItems="center">
-        <Grid sx={{ display: 'flex', alignContent: 'center' }} item xs={10}>
+        <Grid sx={{ display: 'flex', alignContent: 'center' }} item xs={8}>
           <Typography sx={{ marginLeft: 2 }} variant="h6">Print Heads</Typography>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={4}>
           <TextField
             placeholder="Search..."
             variant="outlined"
